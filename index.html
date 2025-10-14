@@ -25,6 +25,18 @@
     id="sky"
     src="assets\sky.jpg"
 >
+<img
+id="deadleaves-base"
+src="assets/Dead_leaves_001_COLOR.jpg"
+>
+<img
+id="deadleaves-normal"
+src="assets/Dead_leaves_001_NRM.jpg"
+>
+<img
+id="deadleaves-ambientocclusion"
+src="assets/Dead_leaves_001_OCC.jpg"
+>
 <a-asset-item
 id="Container"
 src="assets/Container.glb"
@@ -63,6 +75,11 @@ src="assets/Truckk.glb"
 <asset-item
 id="crate"
 src="assets/crate.glb"
+>
+</asset-item>
+<asset-item
+id="tree"
+src="assets/tree.glb"
 >
 </asset-item>
 </a-assets>
@@ -174,6 +191,22 @@ rotation="0 -45 0"
 scale="0.2 0.2 0.2"
 >
 </a-entity>
+<a-entity
+gltf-model="#tree"
+position="1 0 3"
+rotation="0 0 0"
+scale="1 1 1"
+>
+</a-entity>
+<a-sphere
+id="leaves"
+material="src: #deadleaves-base; repeat: 8 8; 
+ambientOcclusionMap: #deadleaves-ambientocclusion; ambientOcclusionTextureRepeat: 8 8; 
+normalMap: #deadleaves-normal; normalTextureRepeat: 8 8;"
+geometry="radius.55"
+position=".75 3 3"
+>
+</a-sphere>
 </a-scene>
 </body>
 </html>
