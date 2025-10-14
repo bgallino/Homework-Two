@@ -5,6 +5,10 @@
             <script src=
 "https://aframe.io/releases/1.7.0/aframe.min.js">
             </script>
+            <script src=
+"https://wsause.github.io/sause-extras/navigation.js">
+</script>
+
         </head>
     <body>
 <a-scene>
@@ -112,6 +116,7 @@ gltf-model="#Truckk"
 position="-22 0 -24"
 rotation="0 90 0"
 scale="1.2 1.2 1.2"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -119,6 +124,7 @@ gltf-model="#wall"
 position="-11 0 -16"
 rotation="0 0 0"
 scale="0.25 0.25 0.25"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -126,6 +132,7 @@ gltf-model="#Container"
 position="11.5 0 1"
 rotation="0 180 0"
 scale="1 1 1"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -133,6 +140,7 @@ gltf-model="#Container"
 position="11.5 0 -7"
 rotation="0 180 0"
 scale="1 1 1"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -140,6 +148,7 @@ gltf-model="#Tank"
 position="-18 0 5"
 rotation="0 70 0"
 scale="1.3 1.3 1.3"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -147,6 +156,7 @@ gltf-model="#Tank"
 position="-26 0 -5"
 rotation="0 90 0"
 scale="1.3 1.3 1.3"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -154,6 +164,7 @@ gltf-model="#crate"
 position="-1 0.55 -1"
 rotation="0 0 0"
 scale="1 1 1"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -161,6 +172,7 @@ gltf-model="#Soldier"
 position="1 0 -3"
 rotation="0 -45 0"
 scale="0.07 0.07 0.07"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -168,6 +180,7 @@ gltf-model="#Soldier"
 position="-5.1 0 -2"
 rotation="0 -40 0"
 scale="0.07 0.07 0.07"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -175,6 +188,7 @@ gltf-model="#Jet"
 position="3 15 -12"
 rotation="0 -45 0"
 scale="1.5 1.5 1.5"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -182,6 +196,7 @@ gltf-model="#Jet"
 position="-15 15 -5"
 rotation="0 -35 0"
 scale="1.5 1.5 1.5"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -189,6 +204,7 @@ gltf-model="#wall"
 position="-2 0 1"
 rotation="0 -45 0"
 scale="0.2 0.2 0.2"
+class="collidable"
 >
 </a-entity>
 <a-entity
@@ -196,6 +212,7 @@ gltf-model="#tree"
 position="1 0 3"
 rotation="0 0 0"
 scale="1 1 1"
+class="collidable"
 >
 </a-entity>
 <a-sphere
@@ -205,8 +222,97 @@ ambientOcclusionMap: #deadleaves-ambientocclusion; ambientOcclusionTextureRepeat
 normalMap: #deadleaves-normal; normalTextureRepeat: 8 8;"
 geometry="radius.55"
 position=".75 3 3"
+
 >
 </a-sphere>
+<a-entity
+id="rig"
+navigation
+>
+<a-camera
+id="camera"
+wasd-controls="enabled: false"
+look-controls="enabled: false"
+>
+</a-camera>
+<a-entity
+id="right-hand"
+laser-controls="hand: right"
+>
+</a-entity>
+<a-entity
+id="left-hand"
+laser-controls="hand: left"
+>
+</a-entity>
+<a-entity
+id="waist-raycaster-front"
+raycaster=
+"objects: .collidable;
+showLine: false;
+far: 0.1"
+position="0 1 0"
+>
+</a-entity>
+<a-entity
+id="head-raycaster-front"
+raycaster=
+"objects: .collidable;
+showLine: false;
+far: 0.1"
+position="0 1.6 0"
+>
+</a-entity>
+<a-entity
+id="knees-raycaster-front"
+raycaster=
+"objects: .collidable;
+showLine: false;
+far: 0.1"
+position="0 0.5 0"
+>
+</a-entity>
+<a-entity
+id="waist-raycaster-back"
+raycaster=
+"objects: .collidable;
+showLine: false;
+far: 0.1;
+direction: 0 0 1"
+position="0 1 0"
+>
+</a-entity>
+<a-entity
+id="head-raycaster-back"
+raycaster=
+"objects: .collidable;
+showLine: false;
+far: 0.1;
+direction: 0 0 1"
+position="0 1.6 0"
+>
+</a-entity>
+<a-entity
+id="knees-raycaster-back"
+raycaster=
+"objects: .collidable;
+showLine: false;
+far: 0.1;
+direction: 0 0 1"
+position="0 0.5 0"
+>
+</a-entity>
+<a-entity
+id="feet-raycaster"
+raycaster=
+"objects: .collidable;
+showLine: false;
+far: 5;
+direction: 0 -1 0"
+position="0 0.45 0"
+>
+</a-entity>
+</a-entity>
 </a-scene>
 </body>
 </html>
